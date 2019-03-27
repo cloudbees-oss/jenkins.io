@@ -58,13 +58,9 @@ notitle: true
     end
   end
 
-%h1<
-  = page.title.gsub('Jenkins', 'CloudBees')
-
-%p<
-  This advisory announces vulnerabilities in
-  %strong<
-    Jenkins, CloudBees Jenkins Distribution, CloudBees Jenkins Platform and CloudBees Core.
+%p
+  :markdown
+    This advisory announces vulnerabilities in **Jenkins, CloudBees Jenkins Distribution, CloudBees Jenkins Platform and CloudBees Core**.
 
 - described_issues = page.issues.dup.keep_if { |i| i.title && i.description }
 - if described_issues.size > 0
@@ -72,10 +68,7 @@ notitle: true
     %h3{:id => issue.id}<
       = issue.title
     %strong<
-      - if issue.cve
-        = "#{issue.id} / #{issue.cve}"
-      - else
-        = issue.id
+      = issue.id
     = Asciidoctor.convert issue.description, safe: :safe
 - else
   - # If there is any content, it's the issue descriptions -- but only show if there are none in the data
