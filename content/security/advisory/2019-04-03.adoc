@@ -302,7 +302,7 @@ issues:
 
 - id: SECURITY-957
   reporter: Viktor Gazdag
-  title: PLUGIN_NAME stored credentials in plain text
+  title: PLUGIN_NAME stored credentials in plain text # TODO tense?
   cve: CVE pending
   cvss:
     severity: Low
@@ -448,7 +448,7 @@ issues:
 
 - id: SECURITY-993
   reporter: Viktor Gazdag
-  title: CSRF vulnerability and missin permission checks in PLUGIN_NAME allow SSRF
+  title: CSRF vulnerability and missing permission check in PLUGIN_NAME allow SSRF
   cve: CVE pending
   cvss:
     severity: Medium
@@ -506,7 +506,7 @@ issues:
 
 - id: SECURITY-1054
   reporter: Viktor Gazdag
-  title: CSRF vulnerability and missing permission checks in PLUGIN_NAME allow SSRF
+  title: CSRF vulnerability and missing permission check in PLUGIN_NAME allow SSRF
   cve: CVE pending
   cvss:
     severity: Medium
@@ -794,7 +794,7 @@ issues:
 
 - id: SECURITY-1055
   reporter: Viktor Gazdag
-  title: CSRF vulnerability and missing permission checks in PLUGIN_NAME allow SSRF
+  title: CSRF vulnerability and missing permission check in PLUGIN_NAME allow SSRF
   cvss:
     severity: Medium
     vector: CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
