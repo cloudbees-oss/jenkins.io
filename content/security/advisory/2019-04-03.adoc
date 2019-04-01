@@ -51,7 +51,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in its global configuration file `hudson.plugins.jira.JiraProjectProperty.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: jira-ext # 0.7 (check 0.8)
+  - name: jira-ext # 0.7 (confirmed in 0.8) # TODO skip candidate
 
 
 - id: SECURITY-837
@@ -79,7 +79,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: hockeyapp # 1.2.2 (check 1.4.0)
+  - name: hockeyapp # 1.2.2 (confirmed in 1.4.0) # TODO skip candidate
 
 
 - id: SECURITY-954
@@ -136,7 +136,7 @@ issues:
 
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
-  - name: ftppublisher # 1.2
+  - name: ftppublisher # 1.2 (current)
 
 
 - id: SECURITY-1041
@@ -213,7 +213,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in its global configuration file `org.jenkinsci.plugins.awsdevicefarm.AWSDeviceFarmRecorder.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: aws-device-farm # 1.15 (check 1.25)
+  - name: aws-device-farm # 1.15 (confirmed in 1.25)
 
 
 - id: SECURITY-838
@@ -283,7 +283,7 @@ issues:
     Aqua Security Scanner Plugin stores credentials unencrypted in its global configuration file `org.jenkinsci.plugins.aquadockerscannerbuildstep.AquaDockerScannerBuilder.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: aqua-security-scanner # 3.0.6 (check 3.0.15)
+  - name: aqua-security-scanner # 3.0.6 (confirmed in 3.0.15)
 
 
 - id: SECURITY-952
@@ -302,16 +302,17 @@ issues:
 
 - id: SECURITY-957
   reporter: Viktor Gazdag
-  title: OctopusDeploy Plugin stores credentials in plain text
+  title: PLUGIN_NAME stored credentials in plain text
   cve: CVE pending
   cvss:
     severity: Low
     vector: CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
   description: |
-    veracode-scanner Plugin stores credentials unencrypted in its global configuration file `hudson.plugins.octopusdeploy.OctopusDeployPlugin.xml` on the Jenkins master.
+    PLUGIN_NAME stored credentials unencrypted in its global configuration file `hudson.plugins.octopusdeploy.OctopusDeployPlugin.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: octopusdeploy # 1.8.1 (check 1.9.0)
+  - name: octopusdeploy # 1.8.1 (confirmed in 1.9.0) # TODO skip candidate
+
 
 
 - id: SECURITY-961
@@ -382,7 +383,7 @@ issues:
 
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
-  - name: audit2db # 0.5
+  - name: audit2db # 0.5 (current)
 
 
 - id: SECURITY-979
@@ -427,7 +428,7 @@ issues:
 
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
-  - name: deployit-plugin # 7.5.0 (check 7.5.3)
+  - name: deployit-plugin # 7.5.0 (check 7.5.3) # TODO skip candidate
 
 
 - id: SECURITY-991
@@ -457,7 +458,7 @@ issues:
 
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
-  - name: zephyr-enterprise-test-management # 1.4 (check 1.6)
+  - name: zephyr-enterprise-test-management # 1.4 (confirmed in 1.6)
 
 
 - id: SECURITY-1037
@@ -486,7 +487,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: fabric-beta-publisher # 2.0 (check 2.1)
+  - name: fabric-beta-publisher # 2.0 (confirmed in 2.1)
 
 
 - id: SECURITY-1044
@@ -544,7 +545,7 @@ issues:
     Open STF Plugin stores credentials unencrypted in its global configuration file `hudson.plugins.openstf.STFBuildWrapper.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: open-stf # 1.0.8 (check 1.0.9)
+  - name: open-stf # 1.0.8 (confirmed in 1.0.9)
 
 
 - id: SECURITY-1061
@@ -601,7 +602,7 @@ issues:
 
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
-  - name: openid # 2.2 (check 2.3)
+  - name: openid # 2.2 (confirmed in 2.3)
 
 
 - id: SECURITY-1085
@@ -692,7 +693,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: mabl-integration # 0.0.8 (check 0.0.12)
+  - name: mabl-integration # 0.0.8 (confirmed in 0.0.12)
 
 
 - id: SECURITY-947
@@ -731,7 +732,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: deployhub # 8.0.10 (check 8.0.13)
+  - name: deployhub # 8.0.10 (check 8.0.13) # TODO skip candidate
 
 
 - id: SECURITY-963
