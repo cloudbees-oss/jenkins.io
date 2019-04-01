@@ -732,7 +732,7 @@ issues:
     PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: deployhub # 8.0.10 (check 8.0.13) # TODO skip candidate
+  - name: deployhub # 8.0.10 (confirmed in 8.0.13)
 
 
 - id: SECURITY-963
