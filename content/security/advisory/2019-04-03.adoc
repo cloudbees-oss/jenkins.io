@@ -5,11 +5,6 @@ section: security
 kind: plugins
 issues:
 
-# TODO Final checks:
-# - double check tense -- stored/stores, can/could
-# - confirm all vulns still present ('check version')
-# - check for which plugins to suspend distribution
-
 # 1000+
 
 - id: SECURITY-829
@@ -40,18 +35,18 @@ issues:
   - name: aws-beanstalk-publisher-plugin # 1.7.4 (current)
 
 
-- id: SECURITY-836
+- id: SECURITY-839
   reporter: Viktor Gazdag
   title: PLUGIN_NAME stores credentials in plain text
   cve: CVE pending
   cvss:
-    severity: Low
-    vector: CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
+    severity: Medium
+    vector: CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
   description: |-
-    PLUGIN_NAME stores credentials unencrypted in its global configuration file `hudson.plugins.jira.JiraProjectProperty.xml` on the Jenkins master.
-    These credentials can be viewed by users with access to the master file system.
+    PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
+    These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
-  - name: jira-ext # 0.7 (confirmed in 0.8) # TODO skip candidate
+  - name: hockeyapp # 1.2.2 (confirmed in 1.4.0)
 
 
 - id: SECURITY-837
@@ -66,20 +61,6 @@ issues:
     These credentials can be viewed by users with Extended Read permission, or access to the master file system.
   plugins:
   - name: jenkins-jira-issue-updater # 1.18 (current) (4900 installs)
-
-
-- id: SECURITY-839
-  reporter: Viktor Gazdag
-  title: PLUGIN_NAME stores credentials in plain text
-  cve: CVE pending
-  cvss:
-    severity: Medium
-    vector: CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
-  description: |-
-    PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins master.
-    These credentials can be viewed by users with Extended Read permission, or access to the master file system.
-  plugins:
-  - name: hockeyapp # 1.2.2 (confirmed in 1.4.0) # TODO skip candidate
 
 
 - id: SECURITY-954
@@ -166,13 +147,9 @@ issues:
   plugins:
   - name: jenkins-cloudformation-plugin # 1.2 (current)
 
-#################
-#################
-#################
-################# 100+
-#################
-#################
-#################
+
+# 100+
+
 
 - id: SECURITY-830
   reporter: Viktor Gazdag
@@ -311,8 +288,7 @@ issues:
     PLUGIN_NAME stored credentials unencrypted in its global configuration file `hudson.plugins.octopusdeploy.OctopusDeployPlugin.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
-  - name: octopusdeploy # 1.8.1 (confirmed in 1.9.0) # TODO skip candidate
-
+  - name: octopusdeploy # 1.8.1 (confirmed in 1.9.0)
 
 
 - id: SECURITY-961
@@ -414,21 +390,6 @@ issues:
     Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
   plugins:
   - name: openshift-deployer # 1.2.0 (current)
-
-
-- id: SECURITY-983
-  reporter: Viktor Gazdag
-  title: CSRF vulnerability and missing permission check in PLUGIN_NAME
-  cve: CVE pending
-  cvss:
-    severity: Medium
-    vector: CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
-  description: |-
-    A missing permission check in a form validation method in PLUGIN_NAME allows users with Overall/Read permission to initiate a connection test to an attacker-specified server with attacker-specified credentials.
-
-    Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.
-  plugins:
-  - name: deployit-plugin # 7.5.0 (check 7.5.3) # TODO skip candidate
 
 
 - id: SECURITY-991
@@ -648,13 +609,7 @@ issues:
   - name: assembla-auth # 1.11 (current)
 
 
-#################
-#################
-#################
-################# 10+
-#################
-#################
-#################
+# 10+
 
 
 - id: SECURITY-828
@@ -871,13 +826,7 @@ issues:
   - name: koji # 0.3 (current)
 
 
-#################
-#################
-#################
-################# 0+
-#################
-#################
-#################
+# 0+
 
 
 - id: SECURITY-960
