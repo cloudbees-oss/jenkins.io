@@ -723,6 +723,9 @@ issues:
 - id: SECURITY-1032
   reporter: Viktor Gazdag
   title: CSRF vulnerability and missing permission check in PLUGIN_NAME allowed SSRF
+  cvss:
+    severity: Medium
+    vector: CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N
   description: |-
     A missing permission check in a form validation method in PLUGIN_NAME allowed users with Overall/Read permission to initiate a connection test to an attacker-specified server with attacker-specified API token.
 
@@ -737,7 +740,10 @@ issues:
 
 - id: SECURITY-1040
   reporter: Viktor Gazdag
-  title: PLUGIN_NAME stores credentials in plain text
+  title: PLUGIN_NAME stored credentials in plain text
+  cvss:
+    severity: Low
+    vector: CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
   description: |-
     PLUGIN_NAME stored API tokens unencrypted in its global configuration file `com.netsparker.cloud.plugin.NCScanBuilder.xml` on the Jenkins master.
     These API tokens could be viewed by users with access to the master file system.

@@ -92,6 +92,9 @@ notitle: true
             = issue.cvss.severity
         - else
           = issue.cvss.severity
+    - else
+      %li
+        = "#{issue.id}: Unspecified"
 
 %h2
   Affected Versions
