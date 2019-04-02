@@ -279,13 +279,13 @@ issues:
 
 - id: SECURITY-957
   reporter: Viktor Gazdag
-  title: PLUGIN_NAME stored credentials in plain text # TODO tense?
+  title: PLUGIN_NAME stores credentials in plain text
   cve: CVE pending
   cvss:
     severity: Low
     vector: CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
   description: |
-    PLUGIN_NAME stored credentials unencrypted in its global configuration file `hudson.plugins.octopusdeploy.OctopusDeployPlugin.xml` on the Jenkins master.
+    PLUGIN_NAME stores credentials unencrypted in its global configuration file `hudson.plugins.octopusdeploy.OctopusDeployPlugin.xml` on the Jenkins master.
     These credentials can be viewed by users with access to the master file system.
   plugins:
   - name: octopusdeploy # 1.8.1 (confirmed in 1.9.0)
@@ -700,7 +700,7 @@ issues:
     PLUGIN_NAME stored credentials unencrypted in its global configuration file `org.jenkinsci.plugins.youtrack.YouTrackProjectProperty.xml` on the Jenkins master.
     These credentials could be viewed by users with access to the master file system.
 
-    TODO fixed how?
+    PLUGIN_NAME now stores credentials encrypted.
   plugins:
   - name: youtrack-plugin # 0.7.1
     previous: 0.7.1
@@ -727,6 +727,8 @@ issues:
     A missing permission check in a form validation method in PLUGIN_NAME allowed users with Overall/Read permission to initiate a connection test to an attacker-specified server with attacker-specified API token.
 
     Additionally, the form validation method did not require POST requests, resulting in a CSRF vulnerability.
+
+    The form validation method now performs a permission check for Overall/Administer and requires that requests be sent via POST.
   plugins:
   - name: netsparker-cloud-scan # 1.1.2
     previous: 1.1.5
@@ -737,10 +739,10 @@ issues:
   reporter: Viktor Gazdag
   title: PLUGIN_NAME stores credentials in plain text
   description: |-
-    PLUGIN_NAME stored credentials unencrypted in its global configuration file `com.netsparker.cloud.plugin.NCScanBuilder.xml` on the Jenkins master.
-    These credentials could be viewed by users with access to the master file system.
+    PLUGIN_NAME stored API tokens unencrypted in its global configuration file `com.netsparker.cloud.plugin.NCScanBuilder.xml` on the Jenkins master.
+    These API tokens could be viewed by users with access to the master file system.
 
-    TODO fixed how?
+    PLUGIN_NAME now stores API tokens encrypted.
   plugins:
   - name: netsparker-cloud-scan # 1.1.2
     previous: 1.1.5
