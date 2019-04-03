@@ -65,11 +65,20 @@ notitle: true
 - described_issues = page.issues.dup.keep_if { |i| i.title && i.description }
 - if described_issues.size > 0
   - described_issues.each do | issue |
+
+    - if issue.plugins
+      - plugin_name = site._generated[:update_center].plugins[issue.plugins[0].name]&.title || issue.plugins[0].name
     %h3{:id => issue.id}<
-      = issue.title
+      - if plugin_name
+        = issue.title.gsub(/PLUGIN_NAME/, "#{plugin_name} Plugin")
+      - else
+        = issue.title
     %strong<
       = issue.id
-    = Asciidoctor.convert issue.description, safe: :safe
+    - if plugin_name
+      = Asciidoctor.convert issue.description.gsub(/PLUGIN_NAME/, "#{plugin_name} Plugin"), safe: :safe
+    - else
+      = Asciidoctor.convert issue.description, safe: :safe
 - else
   - # If there is any content, it's the issue descriptions -- but only show if there are none in the data
   = content
@@ -81,13 +90,17 @@ notitle: true
 
 %ul
   - page.issues.dup.sort { |x,y| x.id.split("-")[1].to_i <=> y.id.split("-")[1].to_i }.each do | issue |
-    %li<
-      = "#{issue.id}:"
-      - if issue.cvss.vector.start_with? "CVSS:3.0"
-        %a{ :href => 'http://www.first.org/cvss/calculator/3.0#' + issue.cvss.vector }<
+    - if issue.cvss
+      %li<
+        = "#{issue.id}:"
+        - if issue.cvss.vector.start_with? "CVSS:3.0"
+          %a{ :href => 'http://www.first.org/cvss/calculator/3.0#' + issue.cvss.vector }<
+            = issue.cvss.severity
+        - else
           = issue.cvss.severity
-      - else
-        = issue.cvss.severity
+    - else
+      %li<
+        = "#{issue.id}: Unspecified"
 %p
 %h4<
   Fix
