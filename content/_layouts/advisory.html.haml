@@ -162,14 +162,3 @@ notitle: true
       %li<
         = site._generated[:update_center].plugins[plugin.name]&.title || plugin.title || plugin.name
         Plugin
-
-
-- if page.resources && page.resources.length > 0
-  %h4<
-    Other Resources
-
-  %ul
-    - page.resources.each do | resource |
-      %li<
-        %a{:href => resource.url}<
-          = resource.title
