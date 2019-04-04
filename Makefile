@@ -54,7 +54,7 @@ fetch-reset:
 
 $(BUILD_DIR)/fetch: $(BUILD_DIR)/ruby scripts/release.rss.groovy scripts/fetch-external-resources content/_tmp | $(OUTPUT_DIR)
 	./scripts/groovy pull
-	./scripts/groovy scripts/release.rss.groovy 'https://updates.jenkins.io/release-history.json' > $(OUTPUT_DIR)/releases.rss
+	./scripts/groovy groovy scripts/release.rss.groovy 'https://updates.jenkins.io/release-history.json' > $(OUTPUT_DIR)/releases.rss
 	./scripts/ruby bundle exec ./scripts/fetch-external-resources
 	@touch $(BUILD_DIR)/fetch
 
