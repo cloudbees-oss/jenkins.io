@@ -4,8 +4,10 @@ title: "Chinese Localization"
 section: sigs
 sigId: "chinese-localization"
 logo: /images/logos/kongfu/256.png
+opengraph:
+  image: /images/logos/kongfu/kongfu.png
 tags:
-- Chinese
+- chinese
 - localization
 - chinese-localization
 - chinese-localization-sig
@@ -23,6 +25,9 @@ participants:
 - name: "Yang Zhentao"
   id: "node"
   github: "node"
+- name: "Wang Donghui"
+  id: "donhui"
+  github: "donhui"
 organizations:
 - name: "Alauda"
   github: "alauda"
@@ -30,7 +35,7 @@ organizations:
 links:
   gitter: jenkinsci/chinese-localization-sig
   googlegroup: jenkins-chinese-localization-sig
-  meetings: "/projects/sigs/chinese-localization/#meetings"
+  meetings: "/sigs/chinese-localization/#meetings"
 
 overview: >
   The Chinese Localization group of contributors and collaborators focuses on
