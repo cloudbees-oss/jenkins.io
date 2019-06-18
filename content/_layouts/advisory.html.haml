@@ -77,7 +77,10 @@ notitle: true
       - else
         = issue.title
     %strong<
-      = "#{issue.id} / #{issue.cve}"
+      - if issue.cve
+        = "#{issue.id} / #{issue.cve}"
+      - else
+        = issue.id
     - if plugin_name
       = Asciidoctor.convert issue.description.gsub(/PLUGIN_NAME/, "#{plugin_name} Plugin"), safe: :safe
     - else
