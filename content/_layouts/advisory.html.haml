@@ -77,7 +77,10 @@ notitle: true
       - else
         = issue.title
     %strong<
-      = issue.id
+      - if issue.cve
+        = "#{issue.id} / #{issue.cve}"
+      - else
+        = issue.id
     - if plugin_name
       = Asciidoctor.convert issue.description.gsub(/PLUGIN_NAME/, "#{plugin_name} Plugin"), safe: :safe
     - else
@@ -112,29 +115,29 @@ notitle: true
     %li<
       %strong<
         CloudBees Traditional Platforms
-      &nbsp;should be upgraded #{rolling}
+      &nbsp;should be upgraded to version #{rolling}
     %li<
       %strong<
         CloudBees Cloud Platforms
-      &nbsp;should be upgraded #{rolling}
+      &nbsp;should be upgraded to version #{rolling}
     %li<
       %strong<
         CloudBees Jenkins Enterprise
-      &nbsp;should be upgraded the Managed Masters and Operations Center to #{rolling}
+      &nbsp;Managed Masters and Operations Center should be upgraded to version #{rolling}
     %li<
       %strong<
         CloudBees Jenkins Platform
-      &nbsp;(rolling train, CJP Operations Center and CJP Client Master (#{major_rolling}.x.y.z) should be upgraded to version #{rolling}
+      &nbsp;(rolling train, CJP Operations Center and CJP Client Master (#{major_rolling}.x.y.z) should be upgraded to version #{rolling})
     - if fixed_1
       %li<
         %strong<
           CloudBees Jenkins Platform
-        &nbsp;(fixed train, CJP Operations Center and CJP Client Master (#{major_fixed_1}.#{minor_fixed_1}.x.0.z) should be upgraded to version #{fixed_1}
+        &nbsp;(fixed train, CJP Operations Center and CJP Client Master (#{major_fixed_1}.#{minor_fixed_1}.x.0.z) should be upgraded to version #{fixed_1})
     - if fixed_2
       %li<
         %strong<
           CloudBees Jenkins Platform
-        &nbsp;(fixed train, CJP Operations Center and CJP Client Master (#{major_fixed_2}.#{minor_fixed_2}.x.0.z) should be upgraded to version #{fixed_2}
+        &nbsp;(fixed train, CJP Operations Center and CJP Client Master (#{major_fixed_2}.#{minor_fixed_2}.x.0.z) should be upgraded to version #{fixed_2})
     %li<
       %strong<
         - if isCJD
