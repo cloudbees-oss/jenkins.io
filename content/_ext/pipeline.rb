@@ -42,6 +42,8 @@ Awestruct::Extensions::Pipeline.new do
   extension SolutionPage.new
   extension Releases.new
 
+  extension UpgradeGuide.new
+
   extension AuthorList.new(:posts,
                         '/node/index',
                         :per_page => 10)
@@ -52,6 +54,8 @@ Awestruct::Extensions::Pipeline.new do
                                                      File.expand_path(File.dirname(__FILE__) + '/../doc/developer'))
 
   transformer VersionSwitcher.new
+
+  extension Validator.new
 
   helper AuthorList::AuthorLink
   helper ActiveNav

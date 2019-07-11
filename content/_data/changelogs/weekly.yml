@@ -1574,7 +1574,7 @@
         The previous behavior can be restored by setting the Java system property <code>hudson.Util.useNativeChmodAndMode</code> to <code>true</code>.
       references:
         - issue: 36088
-        - url: https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+        - url: https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties
           title: Jenkins features controlled by system properties
     - type: rfe
       pull: 3167
@@ -1749,7 +1749,7 @@
     - type: bug
       references:
         - issue: 48593
-        - url: https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+        - url: https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties
           title: Jenkins features controlled by system properties
       pull: 3200
       message: >
@@ -1854,7 +1854,7 @@
         Introduce new <code>hudson.lifecycle.ExitLifecycle</code> to exit instead of restart.
       references:
         - issue: 47043
-        - url: https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+        - url: https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties
           title: Jenkins features controlled by system properties
     - type: bug
       pull: 3170
@@ -2533,7 +2533,7 @@
         Default Crumb Issuer proxy compatibility can be enabled on first startup by setting the system property <code>jenkins.model.Jenkins.crumbIssuerProxyCompatibility</code> to <code>true</code> on startup.
       references:
         - issue: 50767
-        - url: https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+        - url: https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties
           title: Jenkins features controlled by system properties
     - type: rfe
       pull: 3364
@@ -2542,7 +2542,7 @@
         Instead, these locations can now be customized using system properties on startup.
       references:
         - issue: 50164
-        - url: https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+        - url: https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties
           title: Jenkins features controlled by system properties
     - type: rfe
       pull: 3403 # and 3404
@@ -4502,6 +4502,145 @@
     # pull: 4044 irrelevant (Use the sponsor button to link to our donation page)
     # pull: 4043 too minor (Switch translations for 2 labels in iconSize_pl.properties)
     # pull: 4031 too minor (Add an example how to launch agent with secret not on command line)
+- version: '2.180'
+  date: 2019-06-09
+  changes:
+    - type: major bug
+      pull: 4047
+      references:
+        - issue: 57759
+        - issue: 57713
+      message: |-
+        Remoting reverted to 3.29 because JNLP agents failed to connect cloud agents in certain situations.
+        (regression in 2.176)
+    - type: rfe
+      pull: 3994
+      issue: 57121
+      message: |-
+        Improve Configuration-as-Code compatibility of <code>ListView</code>.
+    # pull: 4045 too minor ([JENKINS-55787] remove accidentally resurrected localization file)
+    # pull: 4056 too minor (Fix login link localization in loginLink_tr.properties)
+- version: '2.181'
+  date: 2019-06-16
+  changes:
+    - type: bug
+      pull: 4001
+      issue: 33843
+      message: |-
+        The plugin manager UI no longer prevents disabling a plugin when other plugins only have optional dependencies to it.
+    - type: bug
+      pull: 4035
+      issue: 57725
+      message: |-
+        A thread pool used to wait for external processes to complete could leak class loaders.
+
+    - type: rfe
+      pull: 4055
+      issue: 57805
+      message: |-
+        Robustness: Exceptions thrown while scheduling jobs in the queue could prevent other jobs from being scheduled.
+    - type: rfe
+      pull: 4066
+      issue: 57993
+      message: |-
+        Replace some exception stack traces related to agent channels with simpler messages.
+    - type: rfe
+      pull: 4060
+      issue: 57515
+      message: |-
+        Update JNA from 4.5.2 to 5.3.1 to fix issue with shared library loading on AIX when using OpenJDK.
+    - type: rfe
+      pull: 4053
+      message: |-
+        Developer: Update ant dependency from 1.9.2 to 1.9.14.
+    - type: rfe
+      pull: 4062
+      message: |-
+        Internal: Switch from FindBugs to SpotBugs for static analysis.
+    - type: rfe
+      pull: 4023
+      issue: 57466
+      message: |-
+        Internal: Mark <code>hudson.model.UpdateSite#isDue</code> as synchronized.
+    # pull: 4033 (Cleanup groovy)
+    # pull: 4064 (mark up variables)
+    # pull: 4067 too minor ([JENKINS-57992] clarify that the system user is a jenkins concept)
+    # pull: 4068 ([INFRA-2028] The timestamps step is no longer necessary)
+- version: '2.182'
+  date: 2019-06-23
+  changes:
+    - type: bug
+      pull: 4059
+      issue: 57855
+      message: |-
+        When deleting directories, remove the read-only flag on Windows.
+    - type: rfe
+      pull: 4087
+      references:
+        - issue: 57959
+        - issue: 50095
+        - issue: 57713
+        - title: full changelog
+          url: https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md#333
+      message: |-
+        Update Remoting from 3.29 to 3.33.
+    # pull: 4074 too minor (Use a proper example domain in hudson.FunctionsTest#testGetActionUrl_unparseable())
+    # pull: 4081 too minor (Improved logging for NodeProvisioner)
+    # pull: 4083 ([JENKINS-57922] - Ability to specify target directory for translation-tool.pl)
+- version: '2.183'
+  date: 2019-06-30
+  changes:
+    - type: rfe
+      pull: 4072
+      issue: 58041
+      message: |-
+        Add support for IPv6 addresses in the Jenkins URL configuration.
+    - type: rfe
+      pull: 4063
+      issue: 57959
+      message: |-
+        Update args4j from 2.0.31 to 2.33.
+    - type: rfe
+      pull: 4046
+      issue: 58240
+      message: |-
+        Developer: Allow plugins to provide <code>onBlur()</code> handlers for CodeMirror textarea controls.
+    - type: rfe
+      pull: 4038
+      message: |-
+        Developer: Make <code>WindowsUtil</code> available to plugins.
+    - type: rfe
+      pull: 4050
+      issue: 47127
+      message: |-
+        Internal: update maven-war-plugin from 3.0.0 to 3.2.3
+    # pull: 4042 ([JENKINS-57678] - Change getInstance() (deprecated) to get())
+    # pull: 4061 ([JENKINS-49316] Create Item: OK button disabled until TAB pressed)
+    # pull: 4079 (IntelliJ/Java: Duplicate code -- Refactored as ExtensionFinder.getClassFromIndex)
+- version: '2.184'
+  date: 2019-07-07
+  changes:
+    - type: rfe
+      pull: 3939
+      issue: 25046
+      message: |-
+        Remove obsolete session cookies when logging out, preventing errors related to headers being too large.
+    - type: rfe
+      pull: 4003
+      issue: 57223
+      message: |-
+        Add telemetry trial related to missing classes when running on Java 11.
+    - type: bug
+      pull: 4096
+      issue: 56243
+      message: |-
+        Fix performance issue when using "Remember me" (regression in 2.160).
+    - type: rfe
+      pull: 4086
+      message: |-
+        Developer: Clean up constructors of <code>AbstractCloudSlave</code>
+    # pull: 4058 (Add unit tests for hudson.cli.HexDump)
+    # pull: 4026 (Cleanup properties -- don't escape spaces)
 
 
 # DO NOT EDIT THIS FILE DIRECTLY ON GITHUB IF YOU HAVE COMMIT ACCESS

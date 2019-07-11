@@ -19,13 +19,11 @@ project: gsoc
 %ul
   %li
     Student:
-    %a{:href => "https://github.com/#{page.student.github}", :target => "_blank"}
-      = page.student.name
+    = display_user(page.student)
   - page.mentors.each do |mentor|
     %li
       Mentor:
-      %a{:href => "https://github.com/#{mentor.github}", :target => "_blank"}
-        = mentor.name
+      = display_user(mentor)
 
 %h2.title
   Details

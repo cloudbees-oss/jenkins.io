@@ -182,7 +182,7 @@ link:https://github.com/jenkinsci/jep/tree/master/jep/211#temporary-experimental
    Otherwise the jobs will fail almost immediately
 ** When updating instances to Java 11, make sure there is no running Pipelines
 * jira:JENKINS-54305[] -
-  link:jdk-tool[JDK Tool Plugin] does not offer installers for JDK 11
+  plugin:jdk-tool[JDK Tool Plugin] does not offer installers for JDK 11
 * jira:JENKINS-52282[] -
   Java Web Start is no longer available in Java 11, so it is no longer possible to start agents from Web UI.
   We do not plan to provide a replacement.
@@ -252,7 +252,7 @@ In the next weeks we will focus on addressing feedback from early adopters and
 fixing the discovered compatibility issues.
 We will also continue working on Java 11 support patches towards the general availability next year (jira:JENKINS-51805[]).
 In addition to that, we will start working on Java 11 support in subprojects,
-including link:/projects/jenkins-x/[Jenkins X] and link:/projects/evergreen/[Jenkins Evergreen].
+including link:https://jenkins-x.io[Jenkins X] and link:/projects/evergreen/[Jenkins Evergreen].
 
 === Links
 
